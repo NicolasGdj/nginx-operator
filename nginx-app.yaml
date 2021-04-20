@@ -21,7 +21,7 @@ objects:
         spec:
           containers:
           - name: nginx-ui
-            image: nginx:1.14.2
+            image: docker.io/nginx:1.14.2
             ports:
             - containerPort: 80
   - apiVersion: v1
