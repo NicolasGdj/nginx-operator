@@ -21,7 +21,7 @@ objects:
         spec:
           containers:
           - name: nginx-ui
-            image: docker.io/nginx:1.14.2
+            image: quay.io/jitesoft/nginx:latest
             ports:
             - containerPort: 80
   - apiVersion: v1
