@@ -1,7 +1,7 @@
 apiVersion: template.openshift.io/v1
 kind: Template
 metadata:
-  name: nicolas
+  name: d3m
   annotations:
     description: deploys a web server usable on port 30010
 objects:
