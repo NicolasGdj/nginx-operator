@@ -1,0 +1,38 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: nicolas
+  annotations:
+    description: deploys a web server usable on port 30010
+objects:
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: nginx-ui
+    spec:
+      selector:
+        matchLabels:
+          app: nginx-ui
+      replicas: 1
+      template:
+        metadata:
+          labels:
+            app: nginx-ui
+        spec:
+          containers:
+          - name: nginx-ui
+            image: nginx:1.14.2
+            ports:
+            - containerPort: 80
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      name: nginx-ui
+    spec:
+      ports:
+      - port: 8090
+        targetPort: 80
+        nodePort: 30010
+      selector:
+        app: nginx-ui
+      type: NodePort
